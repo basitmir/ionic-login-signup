@@ -1,10 +1,11 @@
 import {NgModule}  from '@angular/core';
 import {IonicModule} from 'ionic-angular';
+import { LoginFormComponent } from './login-form/login-form.component';
 
-@ngModule({
-    declarations : [],
+@NgModule({
+    declarations : [LoginFormComponent],
     imports : [IonicModule],
-    exports :[]
+    exports :[LoginFormComponent]
 })
 export class ComponentsModule{
 
