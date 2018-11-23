@@ -36,4 +36,7 @@ export class LoginFormComponent {
       return this.signinform.get('password');
     }
 
+    onLogin(signinform){
+      console.log(signinform);
+    }
 }
