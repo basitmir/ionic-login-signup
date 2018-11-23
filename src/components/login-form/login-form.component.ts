@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NavController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginFormComponent component.
@@ -15,7 +16,7 @@ export class LoginFormComponent {
 
   text: string;
 
-  constructor() {
+  constructor(private navcntrl:NavController) {
     console.log('Hello LoginFormComponent Component');
     this.text = 'Hello World';
   }
@@ -38,5 +39,9 @@ export class LoginFormComponent {
 
     onLogin(signinform){
       console.log(signinform);
+      
+    }
+    onSignup(){
+      this.navcntrl.push('SignupPage');
     }
 }
