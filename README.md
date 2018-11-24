@@ -1,5 +1,5 @@
 <h1> ionic login and signup </h1>
-This is the code for ionic login and signup with firebase<br>
+This is the code for ionic login and signup with validation<br>
 #HERE ARE THE SCREEN SHOTS
 <p align="left">
 <img  src="src/assets/imgs/login.png" height="500"/>
