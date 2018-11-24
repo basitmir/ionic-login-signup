@@ -15,6 +15,7 @@ import { NavController } from 'ionic-angular';
 export class LoginFormComponent {
 
   text: string;
+  submitAttempt:boolean=false;
 
   constructor(private navcntrl:NavController) {
     console.log('Hello LoginFormComponent Component');
@@ -30,7 +31,8 @@ export class LoginFormComponent {
      onsigninform(signinform:any){
        console.log(signinform.value);
      }
-    get email(){
+     
+    get email(){// gives acess to form control object
       return this.signinform.get('email');
     }
     get password(){
@@ -38,6 +40,14 @@ export class LoginFormComponent {
     }
 
     onLogin(signinform){
+      if(this.signinform.valid){
+        this.submitAttempt=false;
+        console.log ('false');
+      }
+      else{
+        this.submitAttempt=true;
+        console.log('true');
+      }
       console.log(signinform);
       
     }
