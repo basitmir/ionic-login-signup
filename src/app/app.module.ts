@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 
 import { MyApp } from './app.component';
+import { authService } from '../services/auth.services';
 
 //import { HomePage } from '../pages/home/home';
 
@@ -27,7 +28,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    authService
   ]
 })
 export class AppModule {}

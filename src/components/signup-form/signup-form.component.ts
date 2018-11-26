@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { authService } from '../../services/auth.services';
 
 /**
  * Generated class for the SignupFormComponent component.
@@ -18,7 +19,7 @@ export class SignupFormComponent {
   formValid:boolean=true;
   submitAttempt:boolean=false;
 
-  constructor(private navCntrl:NavController) {
+  constructor(private navCntrl:NavController, private auth:authService, private loadcntrl:LoadingController, private alertcntrl:AlertController) {
     console.log('Hello SignupFormComponent Component');
     this.text = 'Hello World';
   }
@@ -69,14 +70,14 @@ export class SignupFormComponent {
        this.submitAttempt=true;
      }
      else{
-            /* const loading=this.laodcntrl.create({
+             const loading=this.loadcntrl.create({
              spinner:'bubbles',
              content: 'Signing you up...'
            });
           loading.present();
        //let data = this.signupform.value;
-       this.authService.signup(this.email.value,this.password.value)
-       .then(data1 => {loading.dismiss();})
+       this.auth.signup(this.email.value,this.password.value)
+       .then(data1 => {loading.dismiss(); })
    
    
        .catch(error =>{
@@ -87,7 +88,7 @@ export class SignupFormComponent {
            buttons:['OK']
          })
          alert.present();    
-       });*/
+       });
      
        this.navCntrl.push('LoginPage');
    }
