@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
+import { authService } from '../../services/auth.services';
 
 /**
  * Generated class for the LoginFormComponent component.
@@ -17,7 +18,7 @@ export class LoginFormComponent {
   text: string;
   submitAttempt:boolean=false;
 
-  constructor(private navcntrl:NavController) {
+  constructor(private navcntrl:NavController, private auth: authService, private alertCntrl: AlertController) {
     console.log('Hello LoginFormComponent Component');
     this.text = 'Hello World';
   }
@@ -42,8 +43,30 @@ export class LoginFormComponent {
     onLogin(signinform){
       if(this.signinform.valid){
         this.submitAttempt=false;
-        console.log ('false');
-      }
+        this.auth.login(this.email.value,this.password.value)
+                .then(data=> {const alert=this.alertCntrl.create({
+                        subTitle: 'Sucessfull Login!',
+         // message:error.message,
+                              buttons:['OK']
+                                                                  })
+                                alert.present();    
+                                                               })//then close
+                                                      
+        .catch(
+                  error=>{
+
+                       const alert=this.alertCntrl.create({
+                              subTitle: 'Login Failed!',
+                                   message:error.message,
+                                          buttons:['OK']
+                                                           })
+                                         alert.present();    
+                                       });
+      
+        
+
+                                        console.log ('false');
+      } //if close
       else{
         this.submitAttempt=true;
         console.log('true');
