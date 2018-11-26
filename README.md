@@ -1,4 +1,4 @@
-<h1> ionic login and signup </h1>
+<h1> ionic login and signup with firebase  </h1>
 This is the code for ionic login and signup with validation<br>
 #HERE ARE THE SCREEN SHOTS
 <p align="left">
